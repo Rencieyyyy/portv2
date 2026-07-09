@@ -1,0 +1,197 @@
+/* ---------- dark theme overrides ----------
+   Applied to <html class="dark-theme">, toggled by theme.js.
+   Uses !important since the base palette lives in style.css,
+   whose specificity/variable names aren't visible here. */
+
+html.dark-theme {
+  --dt-bg: #101012;
+  --dt-panel: #1A1A1D;
+  --dt-panel-alt: #202024;
+  --dt-border: #2E2E33;
+  --dt-ink: #F2F1EC;
+  --dt-ink-soft: #A6A49B;
+}
+
+html.dark-theme,
+html.dark-theme body,
+html.dark-theme .layout {
+  background: var(--dt-bg) !important;
+  color: var(--dt-ink) !important;
+}
+
+html.dark-theme .dots-bg {
+  opacity: .35;
+  filter: invert(1);
+}
+
+/* sidebar + nav */
+html.dark-theme .sidebar,
+html.dark-theme .sidebar-menu,
+html.dark-theme .sidebar-footer {
+  background: var(--dt-bg) !important;
+  color: var(--dt-ink) !important;
+  border-color: var(--dt-border) !important;
+}
+
+html.dark-theme .brand,
+html.dark-theme nav a,
+html.dark-theme .label,
+html.dark-theme .email,
+html.dark-theme .viewing-now {
+  color: var(--dt-ink) !important;
+}
+
+html.dark-theme nav a:not(.active) {
+  color: var(--dt-ink-soft) !important;
+}
+
+html.dark-theme .divider {
+  background: var(--dt-border) !important;
+  border-color: var(--dt-border) !important;
+}
+
+html.dark-theme .burger span {
+  background: var(--dt-ink) !important;
+}
+
+html.dark-theme .ask-btn,
+html.dark-theme .theme-toggle {
+  background: var(--dt-panel) !important;
+  color: var(--dt-ink) !important;
+  border-color: var(--dt-border) !important;
+}
+
+html.dark-theme .mini-avatar {
+  border-color: var(--dt-bg) !important;
+}
+
+/* main content shell */
+html.dark-theme main,
+html.dark-theme .hero,
+html.dark-theme .hero-text h1,
+html.dark-theme .hero-text p,
+html.dark-theme .links a,
+html.dark-theme .stat .num,
+html.dark-theme .title,
+html.dark-theme .about-body p {
+  color: var(--dt-ink) !important;
+}
+
+html.dark-theme .stat .label,
+html.dark-theme .gear-hero p {
+  color: var(--dt-ink-soft) !important;
+}
+
+html.dark-theme .dots-row,
+html.dark-theme .divider,
+html.dark-theme .section-head {
+  border-color: var(--dt-border) !important;
+}
+
+/* project / gear / rec cards */
+html.dark-theme .project-3d-card,
+html.dark-theme .gear-card,
+html.dark-theme .rec-card,
+html.dark-theme .github-box {
+  background: var(--dt-panel) !important;
+  border-color: var(--dt-border) !important;
+  color: var(--dt-ink) !important;
+}
+
+html.dark-theme .project-desc,
+html.dark-theme .gear-desc,
+html.dark-theme .quote,
+html.dark-theme .who-role,
+html.dark-theme .contrib-count,
+html.dark-theme .org {
+  color: var(--dt-ink-soft) !important;
+}
+
+html.dark-theme .stack-tag {
+  background: var(--dt-panel-alt) !important;
+  border-color: var(--dt-border) !important;
+  color: var(--dt-ink) !important;
+}
+
+html.dark-theme .card-badge.black-badge {
+  background: var(--dt-panel-alt) !important;
+  color: var(--dt-ink) !important;
+}
+
+/* ---------- collab page ---------- */
+html.dark-theme .collab-main {
+  background: var(--dt-bg) !important;
+  color: var(--dt-ink) !important;
+}
+
+html.dark-theme .collab-eyebrow {
+  border-color: var(--dt-border) !important;
+  color: var(--dt-ink-soft) !important;
+}
+
+html.dark-theme .collab-title {
+  color: var(--dt-ink) !important;
+}
+
+html.dark-theme .collab-copy,
+html.dark-theme .together-left p,
+html.dark-theme .world-caption,
+html.dark-theme .form-note {
+  color: var(--dt-ink-soft) !important;
+}
+
+html.dark-theme .world-panel,
+html.dark-theme .together-panel {
+  background: var(--dt-panel) !important;
+  border-color: var(--dt-border) !important;
+}
+
+html.dark-theme .world-dots {
+  --collab-dot: #45454B;
+}
+
+html.dark-theme .together-left h2,
+html.dark-theme .together-email {
+  color: var(--dt-ink) !important;
+}
+
+html.dark-theme .together-email {
+  border-color: var(--dt-border) !important;
+}
+
+html.dark-theme .collab-form label {
+  color: var(--dt-ink-soft) !important;
+}
+
+html.dark-theme .collab-form input,
+html.dark-theme .collab-form textarea {
+  background: var(--dt-panel-alt) !important;
+  border-color: var(--dt-border) !important;
+  color: var(--dt-ink) !important;
+}
+
+html.dark-theme .collab-form input:focus,
+html.dark-theme .collab-form textarea:focus {
+  border-color: var(--dt-ink) !important;
+  box-shadow: 0 0 0 3px rgba(242, 241, 236, .08) !important;
+}
+
+html.dark-theme .collab-form button {
+  background: var(--dt-ink) !important;
+  color: var(--dt-bg) !important;
+}
+
+html.dark-theme .form-note.is-success {
+  color: #6FCF97 !important;
+}
+
+html.dark-theme .form-note.is-error {
+  color: #E28A76 !important;
+}
+
+/* smooth the switch itself */
+body, .sidebar, .sidebar-menu, .sidebar-footer, main, .collab-main,
+.project-3d-card, .gear-card, .rec-card, .github-box,
+.world-panel, .together-panel, .collab-form input, .collab-form textarea {
+  transition: background-color .25s ease .08s, color .25s ease .08s, border-color .25s ease .08s;
+}

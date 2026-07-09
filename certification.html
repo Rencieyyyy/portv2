@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('devcieyyy-theme');
+    if (!saved) {
+      saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    if (saved === 'dark') document.documentElement.classList.add('dark-theme');
+  } catch (e) {}
+})();
+</script>
+<title>Certifications — Devcieyyy ++</title>
+<link rel="icon" type="image/png" href="bnw2.jpg">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="mobile-menu.css">
+</head>
+<body>
+<div class="dots-bg"></div>
+<div class="dots-bg bottom"></div>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <a href="index.html" class="brand">Devcieyyy ++</a>
+      <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="sidebarMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+     <div class="sidebar-menu" id="sidebarMenu">
+      <div class="sidebar-nav-group">
+        <nav>
+           <a href="index.html#about"><span class="nav-icon">ℹ</span> About me</a>
+        
+          <a href="gear.html" class="active"><span class="nav-icon">⚙</span> Gear</a>
+          <a href="collab.html"><span class="nav-icon">↔</span> Collab</a>
+        </nav>
+        <div class="divider"></div>
+        <nav class="nav-secondary">
+          <a href="index.html#projects"><span class="nav-icon">▢</span> Projects</a>
+          
+          <a href="index.html#experience"><span class="nav-icon">▬</span> Experience</a>
+          <a href="index.html#stack"><span class="nav-icon">◆</span> Stack</a>
+        <div class="divider"></div>
+          <a href="index.html#recommendations">Recommendations</a>
+            <a href="certification.html">Certifications</a>
+        
+        </nav>
+      </div>
+      
+      <div class="sidebar-footer">
+        <div class="divider"></div>
+        <button class="theme-toggle" type="button" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">☾</span>
+        </button>
+        <div class="label">For work, collabs & everything else, reach me at</div>
+        <a href="mailto:renceeformanes823@gmail.com" class="email">renceeformanes823@gmail.com</a>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+
+    <div class="cert-hero">
+      <h1>certifications</h1>
+      <p>Courses and credentials I've completed along the way — proof I keep learning, not just building. Tap "view" on any of them to see the full certificate.</p>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <section class="cert-section" id="certifications">
+      <div class="section-head">
+        <div class="title">certifications</div>
+      </div>
+
+      <div class="cert-grid-new">
+
+        <!-- Certificate 1 — drop your certificate image in as cert1.png -->
+        <div class="cert-card">
+          <div class="cert-badge">Certificate 01</div>
+          <div class="cert-thumb">
+            <img src="cert1.png" alt="Certificate Title">
+          </div>
+          <div class="cert-top">
+            <div>
+              <h3 class="cert-name">Cybersecurity</h3>
+              <div class="cert-org">Cisco Networking Academy program</div>
+            </div>
+          </div>
+          <div class="cert-meta">
+            <span>Issued</span>
+            <span class="cert-date">20 Feb 2024</span>
+          </div>
+          <button class="cert-verify" type="button" data-cert-img="cert1.png" data-cert-title="Cybersecurity">View <span class="arrow">↗</span></button>
+        </div>
+
+        <!-- Certificate 2 — drop your certificate image in as cert2.png -->
+        <div class="cert-card">
+          <div class="cert-badge">Certificate 02</div>
+          <div class="cert-thumb">
+            <img src="cert2.png" alt="Certificate Title">
+          </div>
+          <div class="cert-top">
+            <div>
+              <h3 class="cert-name">Data Science</h3>
+              <div class="cert-org">Cisco Networking Academy program</div>
+            </div>
+          </div>
+          <div class="cert-meta">
+            <span>Issued</span>
+            <span class="cert-date">05 Mar 2024</span>
+          </div>
+          <button class="cert-verify" type="button" data-cert-img="cert2.png" data-cert-title="Data Science">View <span class="arrow">↗</span></button>
+        </div>
+
+        <!-- Certificate 3 — drop your certificate image in as cert3.png -->
+        <div class="cert-card">
+          <div class="cert-badge">Certificate 03</div>
+          <div class="cert-thumb">
+            <img src="cert3.png" alt="Certificate Title">
+          </div>
+          <div class="cert-top">
+            <div>
+              <h3 class="cert-name">Networks</h3>
+              <div class="cert-org">Cisco Networking Academy program</div>
+            </div>
+          </div>
+          <div class="cert-meta">
+            <span>Issued</span>
+            <span class="cert-date"></span>11 Mar 2024</span>
+          </div>
+          <button class="cert-verify" type="button" data-cert-img="cert3.png" data-cert-title="Networks">View <span class="arrow">↗</span></button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Full-certificate modal, shared by all cards -->
+<div class="cert-modal" id="certModal" aria-hidden="true">
+  <div class="cert-modal-inner">
+    <button class="cert-modal-close" id="certModalClose" type="button" aria-label="Close">×</button>
+    <img id="certModalImg" src="" alt="">
+    <div class="cert-modal-title" id="certModalTitle"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script src="theme.js"></script>
+<script src="mobile-menu.js"></script>
+<script src="cert-modal.js"></script>
+
+<!-- Tawk.to live chat -->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+</body>
+</html>

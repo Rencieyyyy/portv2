@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('devcieyyy-theme');
+    if (!saved) {
+      saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    if (saved === 'dark') document.documentElement.classList.add('dark-theme');
+  } catch (e) {}
+})();
+</script>
+<title>Gear — Devcieyyy ++</title>
+<link rel="icon" type="image/png" href="bnw2.jpg">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="mobile-menu.css">
+</head>
+<body>
+<div class="dots-bg"></div>
+<div class="dots-bg bottom"></div>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-top">
+     <a href="index.html" class="brand">Devcieyyy ++</a>
+      <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="sidebarMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="sidebar-menu" id="sidebarMenu">
+      <div class="sidebar-nav-group">
+        <nav>
+           <a href="index.html#about"><span class="nav-icon">ℹ</span> About me</a>
+        
+          <a href="gear.html" class="active"><span class="nav-icon">⚙</span> Gear</a>
+          <a href="collab.html"><span class="nav-icon">↔</span> Collab</a>
+        </nav>
+        <div class="divider"></div>
+        <nav class="nav-secondary">
+          <a href="index.html#projects"><span class="nav-icon">▢</span> Projects</a>
+          
+          <a href="index.html#experience"><span class="nav-icon">▬</span> Experience</a>
+          <a href="index.html#stack"><span class="nav-icon">◆</span> Stack</a>
+        <div class="divider"></div>
+          <a href="index.html#recommendations">Recommendations</a>
+            <a href="certification.html">Certifications</a>
+        
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="divider"></div>
+        <button class="theme-toggle" type="button" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">☾</span>
+        </button>
+        <div class="label">For work, collabs & everything else, reach me at</div>
+        <a href="mailto:renceeformanes823@gmail.com" class="email">renceeformanes823@gmail.com</a>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+
+    <div class="gear-hero">
+      <h1>gear</h1>
+      <p>This is the hardware I actually use  not a wishlist, not sponsored, just what sits on my desk and travels in my pocket every day. From the laptop I write and build on to the small accessories that make the workflow smoother, everything here has earned its spot through daily use.
+I keep it simple and functional over flashy. If something's listed here, it's because it works well enough that I'd recommend it to anyone asking what to buy.</p>
+    </div>
+
+    <!-- DESK SETUP -->
+    <section class="gear-section" id="desk-setup">
+  <div class="section-head">
+    <div class="title">desk setup</div>
+  </div>
+  <div class="gear-grid">
+
+    <a class="gear-card" href="https://www.asus.com/laptops/for-home/vivobook/" target="_blank" rel="noopener noreferrer">
+      <div class="gear-photo"><img src="vivobook.jpg" alt="vivobook"></div>
+      <div class="gear-info">
+        <div class="gear-name">ASUS Vivobook<span class="arrow">↗</span></div>
+        <div class="gear-desc">477GB memory · 8.00GB Ram</div>
+      </div>
+    </a>
+
+    <a class="gear-card" href="https://www.dell.com/en-us/shop/dell-monitors/sc/monitors" target="_blank" rel="noopener noreferrer">
+      <div class="gear-photo"><img src="dell.png" alt="Dell Monitor"></div>
+      <div class="gear-info">
+        <div class="gear-name">Dell Monitor <span class="arrow">↗</span></div>
+        <div class="gear-desc">Resolution: 1920x1080 60Hz</div>
+      </div>
+    </a>
+
+    <a class="gear-card" href="https://altcustoms.com/products/titan-60-keyboard" target="_blank" rel="noopener noreferrer">
+      <div class="gear-photo"><img src="keyboard.jpg" alt="Titan Keyboard"></div>
+      <div class="gear-info">
+        <div class="gear-name">Titan Keyboard <span class="arrow">↗</span></div>
+        <div class="gear-desc">60% size providing increased desk space</div>
+      </div>
+    </a>
+
+    <a class="gear-card" href="https://www.logitech.com/en-us/products/mice.html" target="_blank" rel="noopener noreferrer">
+      <div class="gear-photo"><img src="logimouse.jpg" alt="Logitech Mouse"></div>
+      <div class="gear-info">
+        <div class="gear-name">Logitech Mouse <span class="arrow">↗</span></div>
+        <div class="gear-desc">Ultra-portable wireless mouse</div>
+      </div>
+    </a>
+
+    <a class="gear-card" href="https://www.realme.com/global" target="_blank" rel="noopener noreferrer">
+      <div class="gear-photo"><img src="realme.png" alt="Realme Phone"></div>
+      <div class="gear-info">
+        <div class="gear-name">Realme Phone <span class="arrow">↗</span></div>
+        <div class="gear-desc">Android smartphone for Developing Applications</div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- EVERYDAY CARRY -->
+<section class="gear-section" id="everyday-carry">
+  <div class="section-head">
+    <div class="title">everyday carry</div>
+  </div>
+  <div class="gear-grid">
+
+    <a class="gear-card" href="https://www.apple.com/iphone/" target="_blank" rel="noopener noreferrer">
+      <div class="gear-photo"><img src="ip13.jpg" alt="Iphone 13"></div>
+      <div class="gear-info">
+        <div class="gear-name">Iphone 13 <span class="arrow">↗</span></div>
+        <div class="gear-desc">128 GB · phone & B-roll camera</div>
+      </div>
+    </a>
+
+    <a class="gear-card" href="https://www.hoco.com/" target="_blank" rel="noopener noreferrer">
+      <div class="gear-photo"><img src="hocu.jpg" alt="Wireless Earbuds"></div>
+      <div class="gear-info">
+        <div class="gear-name">Hoco Airpods <span class="arrow">↗</span></div>
+        <div class="gear-desc">Daily audio & calls</div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+<script src="theme.js"></script>
+<script src="mobile-menu.js"></script>
+
+<!-- Tawk.to live chat -->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+</body>
+</html>

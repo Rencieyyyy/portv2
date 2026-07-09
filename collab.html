@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('devcieyyy-theme');
+    if (!saved) saved = 'light';
+    var resolved = saved === 'system'
+      ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+      : saved;
+    if (resolved === 'dark') document.documentElement.classList.add('dark-theme');
+  } catch (e) {}
+})();
+</script>
+<title>Devcieyyy ++ — Collabs</title>
+<link rel="icon" type="image/png" href="bnw2.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="collab.css">
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="mobile-menu.css">
+</head>
+<body>
+<div class="dots-bg"></div>
+<div class="dots-bg bottom"></div>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <a href="index.html" class="brand">Devcieyyy ++</a>
+      <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="sidebarMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="sidebar-menu" id="sidebarMenu">
+      <div class="sidebar-nav-group">
+        <nav>
+          <a href="index.html#about"><span class="nav-icon">ℹ</span> About me</a>
+          <a href="gear.html"><span class="nav-icon">⚙</span> Gear</a>
+          <a href="collab.html" class="active"><span class="nav-icon">↔</span> Collab</a>
+        </nav>
+        <div class="divider"></div>
+        <nav class="nav-secondary">
+          <a href="index.html#projects"><span class="nav-icon">▢</span> Projects</a>
+          <a href="index.html#experience"><span class="nav-icon">▬</span> Experience</a>
+          <a href="index.html#stack"><span class="nav-icon">◆</span> Stack</a>
+          <div class="divider"></div>
+          <a href="index.html#recommendations">Recommendations</a>
+            <a href="certification.html">Certifications</a>
+        
+        </nav>
+      </div>
+      <div class="sidebar-footer">
+        <div class="divider"></div>
+        <button class="theme-toggle" type="button" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">☾</span>
+        </button>
+        <div class="label">For work, collabs & everything else, reach me at</div>
+        <a href="mailto:renceeformanes823@gmail.com" class="email">renceeformanes823@gmail.com</a>
+      </div>
+    </div>
+  </aside>
+
+  <main class="collab-main">
+
+    <span class="collab-eyebrow reveal d1">open for work</span>
+    <h1 class="collab-title reveal d2">collabs</h1>
+    <p class="collab-copy reveal d2">
+      As a full-stack engineer &amp; UI/UX designer, I partner with teams and clients on web/mobile builds,
+      product design, and generative AI features. Send over what you're working on and let's see if it's a fit.
+    </p>
+
+    <div class="world-panel reveal d3">
+      <div class="world-dots"></div>
+      <div class="world-caption">working with clients &amp; teams worldwide</div>
+    </div>
+
+    <div class="together-panel reveal d4">
+      <div class="together-left">
+        <h2>let's work together</h2>
+        <p>
+          Open to collaborations, freelance builds, and school or startup projects.
+          Fill out the form and I'll get back to you, or email me directly below.
+        </p>
+        <a class="together-email" href="mailto:renceeformanes823@gmail.com">✉ renceeformanes823@gmail.com</a>
+      </div>
+
+      <form class="collab-form" id="collabForm" action="https://formspree.io/f/xqevgnlq" method="POST">
+        <div class="field-row">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="_replyto" placeholder="you@email.com" required>
+          </div>
+        </div>
+        <div>
+          <label for="project">Project type</label>
+          <input type="text" id="project" name="project type" placeholder="e.g. web app, UI/UX, school project">
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me a bit about what you need..." required></textarea>
+        </div>
+        <button type="submit">Send message <span class="arrow">→</span></button>
+        <div class="form-note" id="formNote">I'll get this straight to my inbox.</div>
+      </form>
+    </div>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+<script src="collab.js"></script>
+<script src="theme.js"></script>
+<script src="mobile-menu.js"></script>
+
+<!-- Tawk.to live chat -->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+</body>
+</html>

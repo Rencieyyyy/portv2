@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('devcieyyy-theme');
+    if (!saved) {
+      saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    if (saved === 'dark') document.documentElement.classList.add('dark-theme');
+  } catch (e) {}
+})();
+</script>
+<title>All Projects — Devcieyyy ++</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="mobile-menu.css">
+<link rel="stylesheet" href="project.css">
+</head>
+<body>
+<div class="dots-bg"></div>
+<div class="dots-bg bottom"></div>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <a href="index.html" class="brand">Devcieyyy ++</a>
+      <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="sidebarMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="sidebar-menu" id="sidebarMenu">
+      <div class="sidebar-nav-group">
+        <nav>
+          <a href="index.html#about"><span class="nav-icon">ℹ</span> About me</a>
+          <a href="gear.html"><span class="nav-icon">⚙</span> Gear</a>
+          <div class="divider"></div>
+          <a href="collab.html"><span class="nav-icon">↔</span> Collab</a>
+        </nav>
+     
+        <nav class="nav-secondary">
+          <a href="project.html" class="active"><span class="nav-icon">▢</span> Projects</a>
+          <a href="index.html#experience"><span class="nav-icon">▬</span> Experience</a>
+          <a href="index.html#stack"><span class="nav-icon">◆</span> Stack</a>
+             <div class="divider"></div>
+          <a href="index.html#recommendations">Recommendations</a>
+            <a href="certification.html">Certifications</a>
+        </nav>
+      </div>
+      <div class="sidebar-footer">
+        <div class="divider"></div>
+        <button class="theme-toggle" type="button" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">☾</span>
+        </button>
+        <div class="label">For work, collabs & everything else, reach me at</div>
+        <a href="mailto:renceeformanes823@gmail.com" class="email">renceeformanes823@gmail.com</a>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+
+    <div class="projects-hero">
+      <h1>all projects</h1>
+      <p>Everything I've shipped, from client work to weekend builds — e-commerce stores, admin dashboards, generative AI tools, and a few passion projects along the way.</p>
+    </div>
+
+    <div class="all-projects-list">
+
+      <a class="proj-row" href="https://github.com/Rencieyyyy/daddysjersey" target="_blank" rel="noopener noreferrer">
+        <div class="proj-name">Daddy's Jersey</div>
+        <div class="proj-meta">
+          <div class="proj-tag">E-COMMERCE</div>
+          <div class="proj-desc">An online jersey and apparel store built for direct customer orders.</div>
+        </div>
+        <span class="proj-arrow">↗</span>
+      </a>
+
+      <a class="proj-row" href="https://github.com/Rencieyyyy/queing" target="_blank" rel="noopener noreferrer">
+        <div class="proj-name">Queing</div>
+        <div class="proj-meta">
+          <div class="proj-tag">BOOKING SYSTEM</div>
+          <div class="proj-desc">A queuing app for open-play badminton and pickleball sessions.</div>
+        </div>
+        <span class="proj-arrow">↗</span>
+      </a>
+
+      <a class="proj-row" href="https://github.com/Rencieyyyy/AniMartAdmin" target="_blank" rel="noopener noreferrer">
+        <div class="proj-name">AniMart Admin</div>
+        <div class="proj-meta">
+          <div class="proj-tag">ADMIN PANEL</div>
+          <div class="proj-desc">The admin dashboard behind the AniMart marketplace app.</div>
+        </div>
+        <span class="proj-arrow">↗</span>
+      </a>
+
+      <a class="proj-row" href="https://github.com/Rencieyyyy/Pamanang_Lasa" target="_blank" rel="noopener noreferrer">
+        <div class="proj-name">Pamanang Lasa</div>
+        <div class="proj-meta">
+          <div class="proj-tag">E-COMMERCE</div>
+          <div class="proj-desc">A food-focused e-commerce website connecting local sellers with customers.</div>
+        </div>
+        <span class="proj-arrow">↗</span>
+      </a>
+
+      <a class="proj-row" href="https://github.com/Rencieyyyy/MetalHealthWebsite" target="_blank" rel="noopener noreferrer">
+        <div class="proj-name">Mental Health Website</div>
+        <div class="proj-meta">
+          <div class="proj-tag">ENGAGEMENT SITE</div>
+          <div class="proj-desc">An engagement and invitation site built for doctors across Iloilo.</div>
+        </div>
+        <span class="proj-arrow">↗</span>
+      </a>
+
+      <a class="proj-row" href="https://github.com/Rencieyyyy/ArtSphereL" target="_blank" rel="noopener noreferrer">
+        <div class="proj-name">ArtSphereL — Museum</div>
+        <div class="proj-meta">
+          <div class="proj-tag">CULTURAL / MUSEUM</div>
+          <div class="proj-desc">A website built for a national museum.</div>
+        </div>
+        <span class="proj-arrow">↗</span>
+      </a>
+
+      <a class="proj-row" href="https://github.com/Rencieyyyy/ArtSphereL" target="_blank" rel="noopener noreferrer">
+        <div class="proj-name">ArtSphereL — Shoes</div>
+        <div class="proj-meta">
+          <div class="proj-tag">BUSINESS STARTUP</div>
+          <div class="proj-desc">A shoe startup business website built for students.</div>
+        </div>
+        <span class="proj-arrow">↗</span>
+      </a>
+
+      <a class="proj-row" href="https://github.com/Rencieyyyy/imahecoffeenco" target="_blank" rel="noopener noreferrer">
+        <div class="proj-name">Imahe Coffee Co.</div>
+        <div class="proj-meta">
+          <div class="proj-tag">SMALL BUSINESS</div>
+          <div class="proj-desc">A website built for a coffee shop.</div>
+        </div>
+        <span class="proj-arrow">↗</span>
+      </a>
+
+      <a class="proj-row" href="https://github.com/Rencieyyyy/construction" target="_blank" rel="noopener noreferrer">
+        <div class="proj-name">Construction Co.</div>
+        <div class="proj-meta">
+          <div class="proj-tag">CONSTRUCTION</div>
+          <div class="proj-desc">A construction company website based in Canada.</div>
+        </div>
+        <span class="proj-arrow">↗</span>
+      </a>
+
+    </div>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+<script src="theme.js"></script>
+<script src="mobile-menu.js"></script>
+
+<!-- Tawk.to live chat -->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+/* ---------- Collabs page (light theme) ---------- */
+:root{
+  --collab-bg: #F7F6F3;
+  --collab-panel: #FFFFFF;
+  --collab-border: #E5E2DB;
+  --collab-ink: #16150F;
+  --collab-ink-soft: #57554A;
+  --collab-accent: #16150F;
+  --collab-dot: #C9C6BB;
+}
+
+.collab-main{
+  background: var(--collab-bg);
+  color: var(--collab-ink);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  min-height: 100vh;
+  padding: 64px 56px 96px;
+  overflow: hidden;
+}
+
+/* ---------- entrance animation ---------- */
+.reveal{
+  opacity: 0;
+  transform: translateY(16px);
+  animation: revealUp .7s cubic-bezier(.16,.84,.44,1) forwards;
+}
+.reveal.d1{ animation-delay: .05s; }
+.reveal.d2{ animation-delay: .15s; }
+.reveal.d3{ animation-delay: .25s; }
+.reveal.d4{ animation-delay: .35s; }
+
+@keyframes revealUp{
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .reveal{ animation: none; opacity: 1; transform: none; }
+}
+
+.collab-eyebrow{
+  display:inline-block;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--collab-ink-soft);
+  border: 1px solid var(--collab-border);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.collab-eyebrow::before{
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4CAF6D;
+  margin-right: 7px;
+  animation: pulseDot 1.8s ease-in-out infinite;
+}
+
+@keyframes pulseDot{
+  0%, 100%{ box-shadow: 0 0 0 0 rgba(76,175,109,.5); }
+  50%{ box-shadow: 0 0 0 4px rgba(76,175,109,0); }
+}
+
+.collab-title{
+  font-size: 40px;
+  font-weight: 600;
+  margin: 0 0 18px;
+  letter-spacing: -0.01em;
+}
+
+.collab-copy{
+  max-width: 640px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--collab-ink-soft);
+  margin: 0 0 48px;
+}
+
+/* ---------- world panel ---------- */
+.world-panel{
+  background: var(--collab-panel);
+  border: 1px solid var(--collab-border);
+  border-radius: 18px;
+  padding: 40px;
+  margin-bottom: 28px;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+
+.world-panel:hover{
+  border-color: #D8D4C8;
+  box-shadow: 0 12px 32px -18px rgba(22,21,15,.18);
+  transform: translateY(-2px);
+}
+
+.world-dots{
+  position: relative;
+  height: 300px;
+  border-radius: 16px;
+  background-color: inherit;
+  background-image: radial-gradient(circle, var(--collab-dot) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+  background-position: 0 0;
+  overflow: hidden;
+  animation: driftDots 26s linear infinite;
+}
+
+@keyframes driftDots{
+  to{ background-position: 140px 0; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .world-dots{ animation: none; }
+}
+
+.world-caption{
+  text-align: center;
+  margin-top: 22px;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--collab-ink-soft);
+}
+
+/* ---------- together panel + form ---------- */
+.together-panel{
+  background: var(--collab-panel);
+  border: 1px solid var(--collab-border);
+  border-radius: 18px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr;
+  gap: 40px;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+
+.together-panel:hover{
+  border-color: #D8D4C8;
+  box-shadow: 0 12px 32px -18px rgba(22,21,15,.18);
+  transform: translateY(-2px);
+}
+
+.together-left h2{
+  font-size: 24px;
+  margin: 0 0 14px;
+}
+
+.together-left p{
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--collab-ink-soft);
+  margin: 0 0 22px;
+}
+
+.together-email{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--collab-ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--collab-border);
+  padding-bottom: 3px;
+  transition: border-color .15s ease, gap .15s ease, opacity .15s ease;
+}
+.together-email:hover{
+  border-color: var(--collab-ink);
+  gap: 11px;
+}
+
+.collab-form{
+  display: grid;
+  gap: 14px;
+}
+
+.field-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.collab-form label{
+  display: block;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--collab-ink-soft);
+  margin-bottom: 6px;
+}
+
+.collab-form input,
+.collab-form textarea{
+  width: 100%;
+  background: var(--collab-bg);
+  border: 1px solid var(--collab-border);
+  border-radius: 10px;
+  padding: 11px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--collab-ink);
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.collab-form input:focus,
+.collab-form textarea:focus{
+  border-color: var(--collab-ink);
+  background: var(--collab-panel);
+  box-shadow: 0 0 0 3px rgba(22,21,15,.06);
+}
+
+.collab-form input:invalid:not(:placeholder-shown),
+.collab-form textarea:invalid:not(:placeholder-shown){
+  border-color: #C96A4E;
+}
+
+.collab-form textarea{
+  resize: vertical;
+  min-height: 96px;
+}
+
+.collab-form button{
+  justify-self: start;
+  margin-top: 4px;
+  background: var(--collab-ink);
+  color: var(--collab-panel);
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity .15s ease, transform .15s ease, gap .15s ease;
+}
+.collab-form button:hover{
+  opacity: .88;
+  gap: 12px;
+  transform: translateY(-1px);
+}
+.collab-form button:active{
+  transform: translateY(0);
+}
+.collab-form button .arrow{
+  display: inline-block;
+  transition: transform .15s ease;
+}
+.collab-form button:hover .arrow{
+  transform: translateX(3px);
+}
+
+.collab-form button.is-sending{
+  opacity: .7;
+  cursor: default;
+  pointer-events: none;
+}
+
+.form-note{
+  font-size: 11px;
+  color: var(--collab-ink-soft);
+  margin-top: 2px;
+  min-height: 14px;
+  transition: color .2s ease;
+}
+.form-note.is-success{
+  color: #3C8A5B;
+}
+.form-note.is-error{
+  color: #C0503A;
+}
+
+@media (max-width: 860px){
+  .collab-main{ padding: 40px 20px 72px; }
+  .collab-title{ font-size: 30px; }
+  .together-panel{ grid-template-columns: 1fr; }
+  .field-row{ grid-template-columns: 1fr; }
+}
