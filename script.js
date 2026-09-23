@@ -70,20 +70,26 @@ document.querySelectorAll('.avatar[data-src]').forEach(renderHalftone);
 
 document.addEventListener("DOMContentLoaded", function() {
   const cards = document.querySelectorAll(".project-3d-card");
+  const track = document.getElementById("projectsTrack");
+  let isAnimating = false;
+  const ANIM_MS = 600; // must match the CSS transition duration
 
   cards.forEach(card => {
     card.addEventListener("click", function() {
+      if (isAnimating) return; // ignore clicks mid-transition
+
       const currentIndex = parseInt(this.getAttribute("data-index"));
       if (currentIndex === 1) return; // front card, nothing to do
 
-      // right background card clicked -> bring it to front
       if (currentIndex === 2) shiftCarousel(-1);
-      // left background card clicked -> bring it to front
       else if (currentIndex === 0) shiftCarousel(1);
     });
   });
 
   function shiftCarousel(direction) {
+    isAnimating = true;
+    if (track) track.style.pointerEvents = "none";
+
     cards.forEach(card => {
       let activeIndex = parseInt(card.getAttribute("data-index"));
       let newIndex = activeIndex + direction;
@@ -91,8 +97,14 @@ document.addEventListener("DOMContentLoaded", function() {
       if (newIndex < 0) newIndex = 2;
       card.setAttribute("data-index", newIndex);
     });
+
+    setTimeout(() => {
+      isAnimating = false;
+      if (track) track.style.pointerEvents = "";
+    }, ANIM_MS);
   }
 });
+
 // github-contrib.js
 // Fills #ghGrid with a GitHub-style contribution dot matrix
 // (52 weeks x 7 days). Dot SIZE + shade both scale with activity level.
@@ -107,8 +119,6 @@ document.addEventListener("DOMContentLoaded", function() {
   var DAYS = 7;
   var total = 0;
 
-  // weighted distribution: mostly quiet days, occasional big days —
-  // tweak these weights (or swap in real GitHub API data) any time.
   var LEVELS = [
     { level: 0, weight: 45, min: 0,  max: 0  },
     { level: 1, weight: 25, min: 1,  max: 2  },
@@ -149,3 +159,35 @@ document.addEventListener("DOMContentLoaded", function() {
     countEl.textContent = total.toLocaleString() + ' contributions in the last year';
   }
 })();
+document.addEventListener("DOMContentLoaded", function () {
+  const fan = document.getElementById("stackFan");
+  if (!fan) return;
+
+  const cards = Array.from(fan.querySelectorAll(".stack-card"));
+  const prevBtn = document.getElementById("stackPrev");
+  const nextBtn = document.getElementById("stackNext");
+  const total = cards.length;
+  let offset = 0; // how many steps the fan has shifted
+
+  function render() {
+    cards.forEach((card, i) => {
+      // base position spread evenly around 0, centered on current offset
+      let pos = i - Math.floor(total / 2) - offset;
+      // wrap positions outside the visible range back around
+      while (pos > 3) pos -= total;
+      while (pos < -3) pos += total;
+      card.setAttribute("data-pos", pos);
+    });
+  }
+
+  nextBtn.addEventListener("click", () => {
+    offset = (offset + 1) % total;
+    render();
+  });
+  prevBtn.addEventListener("click", () => {
+    offset = (offset - 1 + total) % total;
+    render();
+  });
+
+  render();
+});
