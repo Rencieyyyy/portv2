@@ -934,76 +934,79 @@ html.dark-theme{
   .stack-card.pos2{transform:translateX(115px) rotate(11deg) scale(.8);}
   .stack-card.pos3{transform:translateX(170px) rotate(16deg) scale(.7);}
 }
-.stack-fan-wrap{
+/* ---------- Stack marquee ---------- */
+.stack-marquee{
   display:flex;
-  flex-direction:row;
-  align-items:center;
-  justify-content:center;
-  gap:16px;
+  flex-direction:column;
+  gap:14px;
+  margin:24px 0 10px;
+}
+.stack-row{
+  overflow:hidden;
   width:100%;
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
-.stack-fan{
-  position:relative;
-  height:220px;
-  flex:1 1 auto;
-  max-width:700px;
+.stack-track{
   display:flex;
-  align-items:center;
-  justify-content:center;
+  gap:12px;
+  width:max-content;
+  will-change:transform;
+}
+.row-right .stack-track{
+  animation: stack-scroll-right 22s linear infinite;
+}
+.row-left .stack-track{
+  animation: stack-scroll-left 22s linear infinite;
+}
+@keyframes stack-scroll-right{
+  from{ transform:translateX(-50%); }
+  to{ transform:translateX(0%); }
+}
+@keyframes stack-scroll-left{
+  from{ transform:translateX(0%); }
+  to{ transform:translateX(-50%); }
+}
+.stack-row:hover .stack-track{
+  animation-play-state:paused;
 }
 
-.stack-nav{
-  flex-shrink:0;
-  width:38px;height:38px;
-  border-radius:50%;
-  border:1px solid var(--line);
-  background:var(--bg);
-  color:var(--ink);
-  font-size:20px;
-  line-height:1;
-  cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:background .15s ease, border-color .15s ease, transform .15s ease;
+.stack-pill{
   flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--mono);
+  font-size:12.5px;
+  color:var(--ink);
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:9px 18px;
+  white-space:nowrap;
 }
-.stack-nav:hover{ background:var(--card); border-color:#bbb; transform:scale(1.08); }
-.dark-theme .stack-nav:hover{ border-color:#4a4b52; }
+.stack-pill i{ font-size:15px; }
 
-.stack-card[data-pos="-3"]{ transform:translateX(-230px) rotate(-16deg) scale(.72); opacity:.55; z-index:1; }
-.stack-card[data-pos="-2"]{ transform:translateX(-150px) rotate(-11deg) scale(.82); opacity:.7;  z-index:2; }
-.stack-card[data-pos="-1"]{ transform:translateX(-78px)  rotate(-6deg)  scale(.92); opacity:.9;  z-index:3; }
-.stack-card[data-pos="0"]{
-  transform:translateX(0) translateY(-14px) rotate(0deg) scale(1.18);
-  opacity:1; z-index:5;
-  width:130px; height:165px;
-  font-size:52px;
-  box-shadow:0 22px 44px rgba(17,17,17,0.22);
-}
-.dark-theme .stack-card[data-pos="0"]{
-  box-shadow:0 22px 48px rgba(0,0,0,0.6);
-}
-.stack-card[data-pos="1"]{ transform:translateX(78px)  rotate(6deg)  scale(.92); opacity:.9;  z-index:3; }
-.stack-card[data-pos="2"]{ transform:translateX(150px) rotate(11deg) scale(.82); opacity:.7;  z-index:2; }
-.stack-card[data-pos="3"]{ transform:translateX(230px) rotate(16deg) scale(.72); opacity:.55; z-index:1; }
-
-/* cards that scroll fully off-screen while cycling */
-.stack-card[data-pos="-4"],
-.stack-card[data-pos="4"]{
-  opacity:0;
-  pointer-events:none;
-}
-.stack-card[data-pos="-4"]{ transform:translateX(-280px) rotate(-18deg) scale(.6); z-index:0; }
-.stack-card[data-pos="4"]{ transform:translateX(280px) rotate(18deg) scale(.6); z-index:0; }
-
-/* ---- Mobile ---- */
 @media(max-width:600px){
-  .stack-fan{height:150px;}
-  .stack-card{width:64px;height:82px;font-size:24px;border-radius:14px;}
-  .stack-card.pos-3{transform:translateX(-118px) rotate(-16deg) scale(.68);}
-  .stack-card.pos-2{transform:translateX(-80px)  rotate(-11deg) scale(.78);}
-  .stack-card.pos-1{transform:translateX(-42px)  rotate(-6deg)  scale(.88);}
-  .stack-card.pos-0{transform:translateX(0) translateY(-8px) scale(1.1);width:76px;height:96px;font-size:30px;}
-  .stack-card.pos1{transform:translateX(42px)  rotate(6deg)  scale(.88);}
-  .stack-card.pos2{transform:translateX(80px)  rotate(11deg) scale(.78);}
-  .stack-card.pos3{transform:translateX(118px) rotate(16deg) scale(.68);}
+  .stack-pill{ font-size:11px; padding:7px 14px; }
+  .stack-marquee{ gap:10px; }
+}
+@media (max-width: 768px) {
+  .sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* needs a solid background, or page content shows through */
+    background: #fff;
+  }
+
+  html.dark-theme .sidebar {
+    background: #0f1012; /* match your dark header color */
+  }
+
+  /* if the burger menu is open and taller than the screen, let it scroll */
+  .sidebar-menu {
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
 }

@@ -143,3 +143,22 @@ body.menu-open {
     padding-top: 24px;
   }
 }
+@media (max-width: 768px) {
+  .sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* needs a solid background, or page content shows through */
+    background: #fff;
+  }
+
+  html.dark-theme .sidebar {
+    background: #0f1012; /* match your dark header color */
+  }
+
+  /* if the burger menu is open and taller than the screen, let it scroll */
+  .sidebar-menu {
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+}
