@@ -1010,3 +1010,4 @@ html.dark-theme{
     overflow-y: auto;
   }
 }
+.stat .num { font-variant-numeric: tabular-nums; }

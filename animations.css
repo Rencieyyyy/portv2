@@ -1,0 +1,129 @@
+/* ---------- keyframes ---------- */
+@keyframes riseIn   { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+@keyframes slideIn  { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: none; } }
+@keyframes popIn    { from { opacity: 0; transform: scale(.92); } to { opacity: 1; transform: none; } }
+@keyframes dotsDrift{ to { background-position: 14px 14px; } }
+@keyframes floatY   { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+
+/* NOTE: "backwards" fill (not "both") so hover transforms still work after the animation ends */
+
+/* ---------- page load ---------- */
+.sidebar .brand { animation: riseIn .7s cubic-bezier(.16,1,.3,1) backwards; }
+.sidebar nav a  { animation: slideIn .6s cubic-bezier(.16,1,.3,1) backwards;
+                  animation-delay: calc(.15s + var(--i, 0) * .06s); }
+.sidebar-footer { animation: riseIn .8s ease .6s backwards; }
+
+.avatar { animation: popIn .9s cubic-bezier(.16,1,.3,1) .1s backwards; }
+.hero-text > * { animation: riseIn .8s cubic-bezier(.16,1,.3,1) backwards; }
+.hero-text > :nth-child(1) { animation-delay: .25s; }
+.hero-text > :nth-child(2) { animation-delay: .38s; }
+.hero-text > :nth-child(3) { animation-delay: .5s; }
+.hero-text > :nth-child(4) { animation-delay: .62s; }
+
+/* drifting dotted background */
+.dots-bg, .dots-row { animation: dotsDrift 20s linear infinite; }
+
+/* smooth light/dark switch */
+body, .sidebar { transition: background-color .35s ease, color .35s ease, border-color .35s ease; }
+
+/* ---------- scroll progress bar ---------- */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; width: 100%; height: 2px;
+  background: var(--ink);
+  transform: scaleX(0); transform-origin: 0 50%;
+  z-index: 2000; pointer-events: none;
+}
+
+/* ---------- scroll reveal (classes added by animations.js) ---------- */
+.reveal { opacity: 0; }
+.reveal.in {
+  opacity: 1;
+  animation: riseIn .9s cubic-bezier(.16,1,.3,1) backwards;
+  animation-delay: var(--d, 0s);
+}
+
+/* section header: line draws itself */
+.section-head { position: relative; }
+.section-head.reveal { border-bottom-color: transparent; }
+.section-head.reveal::after {
+  content: ""; position: absolute; left: 0; bottom: -1px;
+  height: 1px; width: 100%; background: var(--line);
+  transform: scaleX(0); transform-origin: 0 50%;
+}
+.section-head.reveal.in::after { transform: scaleX(1); transition: transform 1.1s cubic-bezier(.16,1,.3,1) .15s; }
+
+/* github dots wipe in left to right */
+.reveal-wipe { clip-path: inset(0 100% 0 0); }
+.reveal-wipe.in { clip-path: inset(0 0 0 0); transition: clip-path 1.8s cubic-bezier(.65,0,.35,1); }
+
+/* ---------- hover micro-interactions ---------- */
+nav a { transition: transform .2s ease, color .2s ease; }
+nav a:hover { transform: translateX(4px); text-decoration: none; }
+
+.avatar img { transition: transform .8s cubic-bezier(.16,1,.3,1), filter .4s ease; }
+.avatar:hover img { transform: scale(1.06); }
+
+.links a {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size .3s ease, color .2s ease;
+}
+.links a:hover { background-size: 100% 1px; text-decoration: none; color: var(--ink); }
+.links a .arrow { transition: transform .2s ease; }
+.links a:hover .arrow, .stat:hover .arrow { transform: translate(2px, -2px); }
+
+.stat { transition: background-color .25s ease; }
+.stat .num .arrow { transition: transform .2s ease; }
+.stat:hover { background: var(--card); }
+
+.exp-row { transition: padding-left .3s cubic-bezier(.16,1,.3,1), background-color .3s ease; }
+.exp-row:hover { padding-left: 12px; background: var(--card); }
+.exp-row .org { transition: color .2s ease; }
+.exp-row:hover .org { color: var(--ink); }
+
+.rec-card { transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease, border-color .3s ease; }
+.rec-card:hover { transform: translateY(-5px); border-style: solid; box-shadow: 0 14px 30px rgba(17,17,17,.08); }
+.dark-theme .rec-card:hover { box-shadow: 0 14px 30px rgba(0,0,0,.45); }
+
+.project-logo { animation: floatY 4s ease-in-out infinite; }
+.store-btn .store-btn-icon { transition: transform .2s ease; }
+.store-btn:hover .store-btn-icon { transform: translate(2px, -2px); }
+
+.stack-pill { transition: transform .25s cubic-bezier(.16,1,.3,1), border-color .25s ease; }
+.stack-pill:hover { transform: translateY(-3px); border-color: var(--ink); }
+
+.theme-icon { display: inline-block; transition: transform .5s cubic-bezier(.16,1,.3,1); }
+.theme-toggle:hover .theme-icon { transform: rotate(30deg) scale(1.15); }
+
+/* ---------- accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal, .reveal-wipe { opacity: 1 !important; clip-path: none !important; }
+}
+/* ---------- gear page ---------- */
+@keyframes gearFloat { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-5px) rotate(-1deg); } }
+
+/* hero text eases in on load */
+.gear-hero h1 { animation: riseIn .8s cubic-bezier(.16,1,.3,1) .15s backwards; }
+.gear-hero p  { animation: riseIn .9s cubic-bezier(.16,1,.3,1) .3s backwards; }
+
+/* cards: smoother lift + soft shadow */
+.gear-card {
+  transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease, border-color .25s ease;
+}
+.gear-card:hover { transform: translateY(-6px); box-shadow: 0 16px 34px rgba(17,17,17,.10); }
+.dark-theme .gear-card:hover { box-shadow: 0 16px 34px rgba(0,0,0,.5); }
+
+/* product photo zooms inside its frame and floats gently */
+.gear-photo { overflow: hidden; }
+.gear-photo img { transition: transform .6s cubic-bezier(.16,1,.3,1); }
+.gear-card:hover .gear-photo img { transform: scale(1.1) rotate(-1.5deg); }
+
+/* arrow nudges, name shifts slightly */
+.gear-name { transition: transform .25s ease; }
+.gear-name .arrow { display: inline-block; transition: transform .25s ease, color .2s ease; }
+.gear-card:hover .gear-name { transform: translateX(3px); }
+.gear-card:hover .gear-name .arrow { transform: translate(3px, -3px); }
+
+/* description fades from muted to normal on hover */
+.gear-desc { transition: color .25s ease; }
+.gear-card:hover .gear-desc { color: var(--ink); }
